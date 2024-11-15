@@ -83,9 +83,7 @@ Widget carDetailsCard({required Car car}) {
           child: Positioned(
             top: large,
             right: medium,
-            child: Image.asset(
-              toyotaCar,
-            ),
+            child: Image.asset(toyotaCar),
           ),
         ),
       ],
