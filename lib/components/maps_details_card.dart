@@ -1,3 +1,5 @@
+import 'package:car_rental_app/components/maps_details_car_details.dart';
+import 'package:car_rental_app/constants/box_decoration_maps_details.dart';
 import 'package:car_rental_app/constants/images.dart';
 import 'package:car_rental_app/constants/number_sizes.dart';
 import 'package:car_rental_app/data/data_models/car.dart';
@@ -14,20 +16,7 @@ Widget carDetailsCard({required Car car}) {
             vertical: small,
           ),
           width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.black54,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(large),
-              topRight: Radius.circular(large),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black38,
-                spreadRadius: 0,
-                blurRadius: small,
-              ),
-            ],
-          ),
+          decoration: BoxDecorationMapsDetails.roundedBlackBox(large),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,39 +30,7 @@ Widget carDetailsCard({required Car car}) {
                 ),
               ),
               SizedBox(height: small),
-              Row(
-                children: [
-                  Icon(
-                    Icons.directions_car,
-                    color: Colors.white,
-                    size: smallForth,
-                  ),
-                  SizedBox(width: xSmallSecond),
-                  Text(
-                    '>${car.distance} km',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: smallThird,
-                    ),
-                  ),
-                  SizedBox(width: small),
-                  Icon(
-                    Icons.battery_full,
-                    color: Colors.white,
-                    size: smallThird,
-                  ),
-                  SizedBox(
-                    width: xSmallSecond,
-                  ),
-                  Text(
-                    car.fuelCapacity.toString(),
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: smallThird,
-                    ),
-                  ),
-                ],
-              )
+              MapsDetailsCarDetails(car: car),
             ],
           ),
         ),
@@ -83,18 +40,14 @@ Widget carDetailsCard({required Car car}) {
           right: 0,
           child: Container(
             padding: EdgeInsets.all(medium),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(medium),
-                  topLeft: Radius.circular(medium),
-                )),
+            decoration: BoxDecorationMapsDetails.roundedWhiteBox(large),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Features",
-                  style: TextStyle(fontSize: mediumSecond, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: mediumSecond, fontWeight: FontWeight.bold),
                 ),
                 featureIcons(),
                 SizedBox(
@@ -156,9 +109,7 @@ Widget featureIcon(IconData icon, String title, String subtitle) {
     width: xXLarge,
     height: xXLarge,
     padding: EdgeInsets.all(xSmallSecond),
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(small),
-        border: Border.all(color: Colors.grey, width: xSmall)),
+    decoration: BoxDecorationMapsDetails.roundedGreykBox(large),
     child: Column(
       children: [
         Icon(
