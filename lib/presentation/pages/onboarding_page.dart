@@ -1,4 +1,6 @@
 import 'package:car_rental_app/constants/colors_const.dart';
+import 'package:car_rental_app/constants/images.dart';
+import 'package:car_rental_app/constants/number_sizes.dart';
 import 'package:car_rental_app/presentation/pages/car_list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +18,7 @@ class OnboardingPage extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                   image: DecorationImage(
-                image: AssetImage('lib/assets/onboarding.webp'),
+                image: AssetImage(onBoardingPageImage),
                 fit: BoxFit.contain,
               )),
             ),
@@ -30,22 +32,22 @@ class OnboardingPage extends StatelessWidget {
                   'Premium cars. \nEnjoy the luxury',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 32,
+                    fontSize: largeSecond,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: small),
                 Text(
                   'Premium and prestige car daily rental. \nExperience the thrill at a lower price',
                   style: TextStyle(
                     color: Colors.grey,
-                    fontSize: 16,
+                    fontSize: smallForth,
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: medium),
                 SizedBox(
-                  width: 320,
-                  height: 54,
+                  width: xXLargeFifth,
+                  height: xxLargeThird,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushAndRemoveUntil(
@@ -59,10 +61,10 @@ class OnboardingPage extends StatelessWidget {
                       foregroundColor: Colors.black,
                       backgroundColor: Colors.white,
                     ),
-                    child: const Text(
+                    child: Text(
                       "Let's Go!",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: smallForth,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

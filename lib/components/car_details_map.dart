@@ -1,3 +1,5 @@
+import 'package:car_rental_app/constants/images.dart';
+import 'package:car_rental_app/constants/number_sizes.dart';
 import 'package:car_rental_app/data/data_models/car.dart';
 import 'package:car_rental_app/presentation/pages/maps_details_page.dart';
 import 'package:flutter/material.dart';
@@ -22,23 +24,23 @@ class _CarDetailsMapState extends State<CarDetailsMap> {
               builder: (context) => MapsDetailsPage(car: widget.car),
             )),
         child: Container(
-          height: 170,
+          height: xxLargeSecond,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(medium),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black12,
-                  blurRadius: 10,
-                  spreadRadius: 5,
+                  blurRadius: small,
+                  spreadRadius: xSmallSecond,
                 )
               ]),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(medium),
             child: Transform.scale(
               scale: widget.scale,
               alignment: Alignment.center,
               child: Image.asset(
-                'lib/assets/istockphoto-1287419541-612x612.jpg',
+                profilePhoto,
                 fit: BoxFit.cover,
               ),
             ),

@@ -1,6 +1,7 @@
 import 'package:car_rental_app/components/car_details_map.dart';
 import 'package:car_rental_app/components/car_details_page_tile.dart';
 import 'package:car_rental_app/components/car_details_profile_container.dart';
+import 'package:car_rental_app/constants/number_sizes.dart';
 import 'package:car_rental_app/data/data_models/car.dart';
 import 'package:car_rental_app/presentation/widgets/car_card.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class _CarDetailsPageState extends State<CarDetailsPage>
       duration: const Duration(seconds: 3),
       vsync: this,
     );
-    _animation = Tween<double>(begin: 1.0, end: 1.5).animate(_controller!)
+    _animation = Tween<double>(begin: xSmall, end: 1.5).animate(_controller!)
       ..addListener(
         () {
           setState(() {});
@@ -48,7 +49,7 @@ class _CarDetailsPageState extends State<CarDetailsPage>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.info_outline),
-            SizedBox(width: 5),
+            SizedBox(width: xSmallSecond),
             Text('Information'),
           ],
         ),
@@ -62,13 +63,13 @@ class _CarDetailsPageState extends State<CarDetailsPage>
             fuelCapacity: widget.car.fuelCapacity,
             pricePerHour: widget.car.pricePerHour,
           )),
-          const SizedBox(height: 20),
+          SizedBox(height: medium),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            padding: EdgeInsets.symmetric(horizontal: medium),
             child: Row(
               children: [
                 CarDetailsProfileContainer(),
-                SizedBox(width: 20),
+                SizedBox(width: medium),
                 CarDetailsMap(
                   car: widget.car,
                   scale: _animation!.value,

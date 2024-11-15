@@ -1,4 +1,5 @@
 import 'package:car_rental_app/constants/colors_const.dart';
+import 'package:car_rental_app/constants/number_sizes.dart';
 import 'package:flutter/material.dart';
 
 class CarDetailsProfileContainer extends StatelessWidget {
@@ -8,24 +9,24 @@ class CarDetailsProfileContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(medium),
         decoration: BoxDecoration(
             color: whiteDarker,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(medium),
             boxShadow: [
               BoxShadow(
                 color: Colors.black12,
-                blurRadius: 10,
-                spreadRadius: 5,
+                blurRadius: small,
+                spreadRadius: xSmallSecond,
               ),
             ]),
         child: Column(
           children: [
             CircleAvatar(
-              radius: 40,
+              radius: xLarge,
               backgroundImage: AssetImage('lib/assets/user-clipart-xl.png'),
             ),
-            const SizedBox(height: 10),
+             SizedBox(height: small),
             const Text(
               'Jane Doe',
               style: TextStyle(

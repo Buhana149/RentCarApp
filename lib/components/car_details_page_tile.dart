@@ -1,3 +1,4 @@
+import 'package:car_rental_app/constants/number_sizes.dart';
 import 'package:car_rental_app/data/data_models/car.dart';
 import 'package:car_rental_app/presentation/widgets/more_card.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class CarDetailsPageTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(medium),
       child: Column(
         children: [
           MoreCard(
@@ -19,7 +20,7 @@ class CarDetailsPageTile extends StatelessWidget {
             fuelCapacity: car.fuelCapacity + 100,
             pricePerHour: car.pricePerHour + 100,
           )),
-          SizedBox(height: 5),
+          SizedBox(height: xSmallSecond),
           MoreCard(
               car: Car(
             model: '${car.model}-2',
@@ -27,7 +28,7 @@ class CarDetailsPageTile extends StatelessWidget {
             fuelCapacity: car.fuelCapacity + 200,
             pricePerHour: car.pricePerHour + 200,
           )),
-          SizedBox(height: 5),
+          SizedBox(height: xSmallSecond),
           MoreCard(
               car: Car(
             model: '${car.model}-3',
