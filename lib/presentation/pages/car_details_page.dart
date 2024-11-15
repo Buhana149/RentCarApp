@@ -1,7 +1,8 @@
+import 'package:car_rental_app/components/car_details_map.dart';
+import 'package:car_rental_app/components/car_details_page_tile.dart';
+import 'package:car_rental_app/components/car_details_profile_container.dart';
 import 'package:car_rental_app/data/data_models/car.dart';
-import 'package:car_rental_app/presentation/pages/maps_details_page.dart';
 import 'package:car_rental_app/presentation/widgets/car_card.dart';
-import 'package:car_rental_app/presentation/widgets/more_card.dart';
 import 'package:flutter/material.dart';
 
 class CarDetailsPage extends StatefulWidget {
@@ -66,108 +67,16 @@ class _CarDetailsPageState extends State<CarDetailsPage>
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
               children: [
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                        color: Color(0xffF3F3F3),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 10,
-                            spreadRadius: 5,
-                          ),
-                        ]),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 40,
-                          backgroundImage:
-                              AssetImage('lib/assets/user-clipart-xl.png'),
-                        ),
-                        const SizedBox(height: 10),
-                        const Text(
-                          'Jane Doe',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(
-                          '\$4,253',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                CarDetailsProfileContainer(),
                 SizedBox(width: 20),
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              MapsDetailsPage(car: widget.car),
-                        )),
-                    child: Container(
-                      height: 170,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 10,
-                              spreadRadius: 5,
-                            )
-                          ]),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Transform.scale(
-                          scale: _animation!.value,
-                          alignment: Alignment.center,
-                          child: Image.asset(
-                            'lib/assets/istockphoto-1287419541-612x612.jpg',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                )
+                CarDetailsMap(
+                  car: widget.car,
+                  scale: _animation!.value,
+                ),
               ],
             ),
           ),
-          Container(
-            padding: EdgeInsets.all(20),
-            child: Column(
-              children: [
-                MoreCard(
-                    car: Car(
-                  model: '${widget.car.model}-1',
-                  distance: widget.car.distance + 100,
-                  fuelCapacity: widget.car.fuelCapacity + 100,
-                  pricePerHour: widget.car.pricePerHour + 100,
-                )),
-                SizedBox(height: 5),
-                MoreCard(
-                    car: Car(
-                  model: '${widget.car.model}-2',
-                  distance: widget.car.distance + 200,
-                  fuelCapacity: widget.car.fuelCapacity + 200,
-                  pricePerHour: widget.car.pricePerHour + 200,
-                )),
-                SizedBox(height: 5),
-                MoreCard(
-                    car: Car(
-                  model: '${widget.car.model}-3',
-                  distance: widget.car.distance + 300,
-                  fuelCapacity: widget.car.fuelCapacity + 300,
-                  pricePerHour: widget.car.pricePerHour + 300,
-                )),
-              ],
-            ),
-          )
+          CarDetailsPageTile(car: widget.car),
         ],
       ),
     );

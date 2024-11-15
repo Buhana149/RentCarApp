@@ -1,3 +1,4 @@
+import 'package:car_rental_app/constants/colors_const.dart';
 import 'package:car_rental_app/data/data_models/car.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -12,7 +13,7 @@ class MapsDetailsPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: transparent,
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Icon(Icons.arrow_back)),
@@ -103,7 +104,10 @@ Widget carDetailsCard({required Car car}) {
                   ),
                   Text(
                     car.fuelCapacity.toString(),
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
                   ),
                 ],
               )
