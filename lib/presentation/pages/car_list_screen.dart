@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CarListScreen extends StatefulWidget {
+  const CarListScreen({super.key});
+
   @override
   State<CarListScreen> createState() => _CarListScreenState();
 }
